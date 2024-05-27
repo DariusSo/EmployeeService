@@ -70,28 +70,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             darbuotojuSarasas.add(developer);
         }
     }
-    public void darbuotojai(){
-        for (Employee e : darbuotojuSarasas){
-            if(e instanceof Manager){
-                if(((Manager) e).getTeamSize() > 10){
-                    System.out.println(e.getName() + " valdo didele komanda.");
-                }else{
-                    System.out.println(e.getName() + " valdo maza komanda");
-                }
-            } else if (e instanceof Developer) {
-                if(((Developer) e).getProgrammingLanguage().equals(ProgrammingLanguage.Csharp)){
-                    System.out.println(e.getName() + " yra C# programuotojas, Alga: " + e.getSalary());
-                } else if (((Developer) e).getProgrammingLanguage().equals(ProgrammingLanguage.JAVA)) {
-                    System.out.println(e.getName() + " yra Java programuotojas, Alga: " + e.getSalary());
-                }
-                else{
-                    System.out.println("Reikia C++ programuotjo, Alga pagal susitarima");
-                }
-            }else{
-                System.out.println("Reikia C++ programuotjo, Alga pagal susitarima");
-            }
-        }
-    }
 
     @Override
     public void changeName(Employee e, String name) {
@@ -150,5 +128,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
         }
         return null;
+    }
+    public List<Employee> getDarbuotojuSarasas() {
+        return darbuotojuSarasas;
+    }
+
+    public void setDarbuotojuSarasas(List<Employee> darbuotojuSarasas) {
+        this.darbuotojuSarasas = darbuotojuSarasas;
     }
 }
